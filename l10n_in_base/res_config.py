@@ -40,7 +40,7 @@ class indian_base_configuration(models.TransientModel):
         It installs the stock_gatepass module.""")
 
     default_coding_method = fields.Selection(selection=[('category', 'Based on the Category'), ('group', 'Based on Major / Sub Groups')], required=True, default_model='product.product', default='category')
-    
+
     module_stock_indent = fields.Boolean(string='Manage internal requests for material, service through Indents.',
     help="""Allows you to keeps track of internal material request.
         It installs the stock_indent module.""")
@@ -133,7 +133,7 @@ class indian_base_configuration(models.TransientModel):
     group_packing_config = fields.Boolean(string='Allow Packaging and Forwarding charges on Purchase', implied_group='l10n_in_base.group_packing_config', help="""TODO""")
     group_freight_config = fields.Boolean(string='Allow Fright charges on Purchase', implied_group='l10n_in_base.group_freight_config', help="""TODO""")
     group_insurance_config = fields.Boolean(string='Allow Insurance charges on Purchase', implied_group='l10n_in_base.group_insurance_config', help="""TODO""")
-    
+
     group_discount_purchase_config = fields.Boolean(string='Allow Discount on Purchase Order lines', implied_group='l10n_in_base.group_discount_purchase_config', help="""TODO""")
 
     group_round_off_purchase_config = fields.Boolean(string='Round-off feature on Purchase Order', implied_group='l10n_in_base.group_round_off_purchase_config', help="""TODO""")
