@@ -96,8 +96,6 @@ You can reconcile customer and suppliers account against each other.
 """,
     'depends': ['base'],
     'data': [
-    ],
-    'update_xml': [
         'res_config_view.xml',
         'l10n_in_base_groups.xml'
     ],

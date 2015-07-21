@@ -39,7 +39,6 @@
         'l10n_in_account_tax_view.xml',
         'report/l10n_in_account_tax_register_view.xml'
     ],
-    'demo': [],
     'installable': True,
     'auto_install': False,
 }
