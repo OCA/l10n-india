@@ -65,12 +65,10 @@ class stock_indent_analysis_report(models.Model):
     date_invoice = fields.Date('Invoice Date')
     partner_id = fields.Many2one('res.partner', 'Partner')
     amount_untaxed = fields.Float('Invoice Amount')
-    gender = fields.Selection(selection=[
-                                         ('male', 'Male'),
+    gender = fields.Selection(selection=[('male', 'Male'),
                                          ('female', 'Female')],
                               string='Gender')
-    type = fields.Selection(selection=[
-                                       ('out_invoice', 'Customer Invoice'),
+    type = fields.Selection(selection=[('out_invoice', 'Customer Invoice'),
                                        ('in_invoice', 'Supplier Invoice'),
                                        ('out_refund', 'Customer Refund'),
                                        ('in_refund', 'Supplier Refund'),
@@ -78,8 +76,7 @@ class stock_indent_analysis_report(models.Model):
                             select=True,
                             change_default=True,
                             track_visibility='always')
-    state = fields.Selection(selection=[
-                                        ('draft', 'Draft'),
+    state = fields.Selection(selection=[('draft', 'Draft'),
                                         ('proforma', 'Pro-forma'),
                                         ('proforma2', 'Pro-forma'),
                                         ('open', 'Open'),

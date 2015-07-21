@@ -60,31 +60,30 @@ class account_tax(models.Model):
         res = []
         cur_price_unit = price_unit
         for tax in taxes:
-        # we compute the amount for the current tax object 
-        # and append it to the result
             data = {
-               'id': tax.id,
-               'name': (tax.description and tax.description + " - " + 
-                        tax.name or tax.name),
-               'account_collected_id': tax.account_collected_id.id,
-               'account_paid_id': tax.account_paid_id.id,
-               'account_analytic_collected_id': (tax.
-                                                 account_analytic_collected_id
-                                                 .id),
-               'account_analytic_paid_id': tax.account_analytic_paid_id.id,
-               'base_code_id': tax.base_code_id.id,
-               'ref_base_code_id': tax.ref_base_code_id.id,
-               'sequence': tax.sequence,
-               'base_sign': tax.base_sign,
-               'tax_sign': tax.tax_sign,
-               'ref_base_sign': tax.ref_base_sign,
-               'ref_tax_sign': tax.ref_tax_sign,
-               'price_unit': cur_price_unit,
-               'tax_code_id': tax.tax_code_id.id,
-               'ref_tax_code_id': tax.ref_tax_code_id.id,
-               'include_base_amount': tax.include_base_amount,
-               'parent_id': tax.parent_id
-            }
+                    'id': tax.id,
+                    'name': (tax.description and tax.description + " - " +
+                             tax.name or tax.name),
+                    'account_collected_id': tax.account_collected_id.id,
+                    'account_paid_id': tax.account_paid_id.id,
+                    'account_analytic_collected_id': (tax.
+                                                      account_analytic_/
+                                                      collected_id.id),
+                    'account_analytic_paid_id': (tax.
+                                                 account_analytic_paid_id.id),
+                    'base_code_id': tax.base_code_id.id,
+                    'ref_base_code_id': tax.ref_base_code_id.id,
+                    'sequence': tax.sequence,
+                    'base_sign': tax.base_sign,
+                    'tax_sign': tax.tax_sign,
+                    'ref_base_sign': tax.ref_base_sign,
+                    'ref_tax_sign': tax.ref_tax_sign,
+                    'price_unit': cur_price_unit,
+                    'tax_code_id': tax.tax_code_id.id,
+                    'ref_tax_code_id': tax.ref_tax_code_id.id,
+                    'include_base_amount': tax.include_base_amount,
+                    'parent_id': tax.parent_id
+                   }
             res.append(data)
             if tax.type == 'percent':
                 amount = cur_price_unit * tax.amount
@@ -102,9 +101,9 @@ class account_tax(models.Model):
                 data['amount'] = amount
             elif tax.type == 'balance':
                 data['amount'] = cur_price_unit - reduce(lambda x,
-                                                          y: y.
-                                                          get('amount', 0.0) +
-                                                          x, res, 0.0)
+                                                         y: y.
+                                                         get('amount', 0.0) +
+                                                         x, res, 0.0)
                 data['balance'] = cur_price_unit
 
             amount2 = data.get('amount', 0.0)
@@ -128,17 +127,17 @@ class account_tax(models.Model):
                                 latest[name + '_sign'] and not
                                 r[name + '_code_id']):
                                 r[name + '_code_id'] = latest[name +
-                                                               '_code_id']
+                                                              '_code_id']
                                 r[name + '_sign'] = latest[name + '_sign']
                                 r['price_unit'] = latest['price_unit']
                                 latest[name + '_code_id'] = False
                         for name in ('tax', 'ref_tax'):
                             if (latest[name + '_code_id'] and
-                                latest[name + '_sign'] and not 
+                                latest[name + '_sign'] and not
                                 r[name + '_code_id']):
-                                r[name + '_code_id'] = latest[name + 
-                                                               '_code_id']
-                                r[name + '_sign'] = latest[name + '_sign'] 
+                                r[name + '_code_id'] = latest[name +
+                                                              '_code_id']
+                                r[name + '_sign'] = latest[name + '_sign']
                                 r['amount'] = data['amount']
                                 latest[name + '_code_id'] = False
 
@@ -157,8 +156,7 @@ class account_tax(models.Model):
         result = {}
         vals = []
         if self.tax_categ == 'excise' and self.name:
-            base_code_id = self.env[
-                                    'account.tax.code'
+            base_code_id = self.env['account.tax.code'
                                     ].create({'name': 'Edu.cess 2% on ' +
                                               self.name})
             vals = [(0, 0, {'name': 'Edu.cess 2% on ' + self.name,
@@ -170,7 +168,8 @@ class account_tax(models.Model):
                             'type_tax_use': 'all',
                             'base_code_id': base_code_id,
                             'tax_code_id': base_code_id,
-                }), (0, 0, {'name': 'H. Edu.cess 1% on ' + self.name,
+                            }),
+                    (0, 0, {'name': 'H. Edu.cess 1% on ' + self.name,
                             'tax_type': 'hedu_cess',
                             'sequence': 12,
                             'type': 'percent',
@@ -179,7 +178,7 @@ class account_tax(models.Model):
                             'type_tax_use': 'all',
                             'base_code_id': base_code_id,
                             'tax_code_id': base_code_id,
-                 })]
+                            })]
             base_code_parent_id = self.env[
                                            'account.tax.code'
                                            ].create({'name': self.name})
@@ -273,8 +272,7 @@ class account_invoice_type(models.Model):
 
     name = fields.Char(string='Name', size=64)
     journal_id = fields.Many2one('account.journal', 'Account Journal')
-    type = fields.Selection(selection=[
-                                       ('out_invoice', 'Customer Invoice'),
+    type = fields.Selection(selection=[('out_invoice', 'Customer Invoice'),
                                        ('in_invoice', 'Supplier Invoice'),
                                        ('out_refund', 'Customer Refund'),
                                        ('in_refund', 'Supplier Refund'),
