@@ -60,14 +60,13 @@ class account_tax(models.Model):
         res = []
         cur_price_unit = price_unit
         for tax in taxes:
-            data = {
-                    'id': tax.id,
+            data = {'id': tax.id,
                     'name': (tax.description and tax.description + " - " +
                              tax.name or tax.name),
                     'account_collected_id': tax.account_collected_id.id,
                     'account_paid_id': tax.account_paid_id.id,
                     'account_analytic_collected_id': (tax.
-                                                      account_analytic_/
+                                                      account_analytic_ /
                                                       collected_id.id),
                     'account_analytic_paid_id': (tax.
                                                  account_analytic_paid_id.id),
@@ -126,20 +125,20 @@ class account_tax(models.Model):
                             if (latest[name + '_code_id'] and
                                 latest[name + '_sign'] and not
                                 r[name + '_code_id']):
-                                r[name + '_code_id'] = latest[name +
-                                                              '_code_id']
-                                r[name + '_sign'] = latest[name + '_sign']
-                                r['price_unit'] = latest['price_unit']
-                                latest[name + '_code_id'] = False
+                                    r[name + '_code_id'] = latest[name +
+                                                                  '_code_id']
+                                    r[name + '_sign'] = latest[name + '_sign']
+                                    r['price_unit'] = latest['price_unit']
+                                    latest[name + '_code_id'] = False
                         for name in ('tax', 'ref_tax'):
                             if (latest[name + '_code_id'] and
                                 latest[name + '_sign'] and not
                                 r[name + '_code_id']):
-                                r[name + '_code_id'] = latest[name +
-                                                              '_code_id']
-                                r[name + '_sign'] = latest[name + '_sign']
-                                r['amount'] = data['amount']
-                                latest[name + '_code_id'] = False
+                                    r[name + '_code_id'] = latest[name +
+                                                                  '_code_id']
+                                    r[name + '_sign'] = latest[name + '_sign']
+                                    r['amount'] = data['amount']
+                                    latest[name + '_code_id'] = False
 
             if tax.include_base_amount:
                 cur_price_unit += amount2
@@ -179,8 +178,7 @@ class account_tax(models.Model):
                             'base_code_id': base_code_id,
                             'tax_code_id': base_code_id,
                             })]
-            base_code_parent_id = self.env[
-                                           'account.tax.code'
+            base_code_parent_id = self.env['account.tax.code'
                                            ].create({'name': self.name})
             result['include_base_amount'] = True
             result['base_code_id'] = base_code_parent_id
