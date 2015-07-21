@@ -19,17 +19,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 ############################################################################
-
-import logging
-
 from openerp import models, fields
+import logging
 
 _logger = logging.getLogger(__name__)
 
+
 class indian_base_configuration(models.TransientModel):
+    _inherit = 'res.config.settings'
 
     _name = 'indian.base.config.settings'
-    _inherit = 'res.config.settings'
+
 
     module_product_coding = fields.Boolean(
         string='Define automatic codings on products',
@@ -224,5 +224,3 @@ class indian_base_configuration(models.TransientModel):
         help="""TODO""")
 
 indian_base_configuration()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
