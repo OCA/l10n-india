@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+############################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
@@ -18,7 +18,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
-##############################################################################
+############################################################################
 
 import logging
 
@@ -41,13 +41,13 @@ class indian_base_configuration(models.TransientModel):
         help="""TODO""")
     module_product_container = fields.Boolean(
         string='Define container or packaging and repairable products',
-        help="""Allows gate keeper to pass the outgoing materials, 
+        help="""Allows gate keeper to pass the outgoing materials,
         products, etc. and keeps track of returning items.
         It installs the stock_gatepass module.""")
 
     default_coding_method = fields.Selection(
         selection=[('category', 'Based on the Category'),
-        ('group', 'Based on Major / Sub Groups')], required=True,
+                   ('group', 'Based on Major / Sub Groups')], required=True,
         default_model='product.product', default='category')
 
     module_stock_indent = fields.Boolean(
@@ -58,7 +58,7 @@ class indian_base_configuration(models.TransientModel):
     module_stock_gatepass = fields.Boolean(
         string='Track outgoing material through Gatepass',
         help="""Allows gate keeper to pass the outgoing materials,
-    products, etc. and keeps track of returning items.
+        products, etc. and keeps track of returning items.
         It installs the stock_gatepass module.""")
 
     module_stock_serial_tracking = fields.Boolean(
@@ -81,7 +81,7 @@ class indian_base_configuration(models.TransientModel):
         It installs the stock_indent module.""")
 
     module_l10n_in_excise_receipt = fields.Boolean(
-        string="""Manage excise on Incoming Shipments and 
+        string="""Manage excise on Incoming Shipments and
         prepare Invoice based on Excise Receipt""",
         help="""Allows you to keeps track of internal material request.
         It installs the stock_indent module.""")
@@ -96,7 +96,7 @@ class indian_base_configuration(models.TransientModel):
         It installs the stock_indent module.""")
 
     module_l10n_in_account_tax = fields.Boolean(
-        string="""Manage categories on Tax to differentiate taxes 
+        string="""Manage categories on Tax to differentiate taxes
         as per Indian Taxonomy""",
         help="""Allows you to keeps track of internal material request.
         It installs the stock_indent module.""")
@@ -128,13 +128,13 @@ class indian_base_configuration(models.TransientModel):
         It installs the stock_indent module.""")
 
     module_l10n_in_packing_stock_invoice = fields.Boolean(
-        string="""Transfer Packaging cost on customer invoice 
+        string="""Transfer Packaging cost on customer invoice
         when invoice prepared based on Delivery Order""",
         help="""Allows you to keeps track of internal material request.
         It installs the stock_indent module.""")
 
     module_l10n_in_dealer_discount_stock_invoice = fields.Boolean(
-        string="""Transfer Dealers discount on customer invoice 
+        string="""Transfer Dealers discount on customer invoice
         when invoice prepared based on Delivery Order""",
         help="""Allows you to keeps track of internal material request.
         It installs the stock_indent module.""")
@@ -155,7 +155,7 @@ class indian_base_configuration(models.TransientModel):
         It installs the stock_indent module.""")
     module_l10n_in_packing_invoice = fields.Boolean(
         string='Compute Packaging Cost on Invoice',
-    help="""Allows you to keeps track of internal material request.
+        help="""Allows you to keeps track of internal material request.
         It installs the stock_indent module.""")
 
     module_purchase_crm = fields.Boolean(
@@ -211,7 +211,7 @@ class indian_base_configuration(models.TransientModel):
         implied_group='l10n_in_base.group_dealer_price_on_sale_config',
         help="""TODO""")
     group_inter_state_tax_config = fields.Boolean(
-        string="""Maintain Register of Forms to be issue 
+        string="""Maintain Register of Forms to be issue
         and to be receive for Inter-State,
         Intet-Warehouse or Export Sales""",
         implied_group='l10n_in_base.group_inter_state_tax_config',

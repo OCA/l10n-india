@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd. 
-#(<http://www.serpentcs.com>)
+#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -20,17 +20,17 @@
 #
 ##########################################################################
 {
-    'name':'Indian Localization',
-    'version':'1.0',
-    'author':'OpenERP SA',
-    'sequence':110,
-    'category':'Indian Localization',
-    'website':'http://www.openerp.com',
-    'summary':'Indian Localization settings',
-    'description':"""
-    Provides the configuration for whole business suite according to 
+    'name': 'Indian Localization',
+    'version': '1.0',
+    'author': 'OpenERP SA',
+    'sequence': 110,
+    'category': 'Indian Localization',
+    'website': 'http://www.openerp.com',
+    'summary': 'Indian Localization settings',
+    'description': """
+    Provides the configuration for whole business suite according to
     indian localization.
-=============================================================================
+==========================================================================
 Here, you can configure the whole business suite based on your requirements.
 You'll be provided different configuration options in the Settings where by
 only selecting some booleans you will be able to install several modules and
@@ -48,14 +48,14 @@ in packaging.
 
 Warehouse Features
 ------------------------
-Track the current location of the product with serial numbers,also can track 
+Track the current location of the product with serial numbers,also can track
 the current location of the product where it is lying.
 
 Useful to manage and track containers in which products are received or
-delivered. Easily manage stock and current location of containers and 
+delivered. Easily manage stock and current location of containers and
 products of different serial numbers.
 
-Send products in repairing via creating an indent and gate pass with 
+Send products in repairing via creating an indent and gate pass with
 approvals of authority,and also keeps track of the incoming shipment
 of repaired products coming back from the supplier who has sent
 repaired product.
@@ -63,7 +63,7 @@ repaired product.
 Sales Features
 --------------------
 The sales manager can prepare quotation templates for products and services,
-define discount etc. and a sales person can just select template while 
+define discount etc. and a sales person can just select template while
 creating quotations.
 
 * Create quotations quickly
@@ -94,19 +94,19 @@ Helps you to adjust Customer and Suppliers Invoices from the same party.
 You can reconcile customer and suppliers account against each other.
 
 """,
-    'depends':['base'],
-    'data':[
+    'depends': ['base'],
+    'data': [
     ],
-    'update_xml':[
+    'update_xml': [
         'res_config_view.xml',
         'l10n_in_base_groups.xml'
     ],
 
-    'demo':[
+    'demo': [
     ],
 
-    'installable':True,
-    'application':True,
+    'installable': True,
+    'application': True,
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
