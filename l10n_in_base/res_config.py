@@ -30,7 +30,6 @@ class indian_base_configuration(models.TransientModel):
 
     _name = 'indian.base.config.settings'
 
-
     module_product_coding = fields.Boolean(
         string='Define automatic codings on products',
         help="""Allows you to keeps track of internal material request.
@@ -224,3 +223,5 @@ class indian_base_configuration(models.TransientModel):
         help="""TODO""")
 
 indian_base_configuration()
+
+# vim:expandtab:tabstop=4:softtabstop=4:shiftwidth=4:

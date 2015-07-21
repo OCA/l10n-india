@@ -108,3 +108,5 @@ You can reconcile customer and suppliers account against each other.
     'installable': True,
     'application': True,
 }
+
+# vim:expandtab:tabstop=4:softtabstop=4:shiftwidth=4:
