@@ -122,8 +122,8 @@ class account_tax(models.Model):
                     for r in res:
                         for name in ('base', 'ref_base'):
                             if (latest[name + '_code_id'] and
-                                latest[name + '_sign'] and not
-                                r[name + '_code_id']):
+                                latest[name + '_sign'] and not r[name +
+                                                                 '_code_id']):
                                 r[name + '_code_id'] = latest[name +
                                                               '_code_id']
                                 r[name + '_sign'] = latest[name + '_sign']
@@ -131,8 +131,8 @@ class account_tax(models.Model):
                                 latest[name + '_code_id'] = False
                         for name in ('tax', 'ref_tax'):
                             if (latest[name + '_code_id'] and
-                                latest[name + '_sign'] and not
-                                r[name + '_code_id']):
+                                latest[name + '_sign'] and not r[name +
+                                                                 '_code_id']):
                                 r[name + '_code_id'] = latest[name +
                                                               '_code_id']
                                 r[name + '_sign'] = latest[name + '_sign']
