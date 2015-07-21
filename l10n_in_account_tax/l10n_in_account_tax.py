@@ -60,14 +60,13 @@ class account_tax(models.Model):
         res = []
         cur_price_unit = price_unit
         for tax in taxes:
+            collect_data_id = tax.account_analytic_collected_id.id
             data = {'id': tax.id,
                     'name': (tax.description and tax.description + " - " +
                              tax.name or tax.name),
                     'account_collected_id': tax.account_collected_id.id,
                     'account_paid_id': tax.account_paid_id.id,
-                    'account_analytic_collected_id': (tax.
-                                                      account_analytic_ /
-                                                      collected_id.id),
+                    'account_analytic_collected_id': collect_data_id,
                     'account_analytic_paid_id': (tax.
                                                  account_analytic_paid_id.id),
                     'base_code_id': tax.base_code_id.id,
@@ -82,7 +81,7 @@ class account_tax(models.Model):
                     'ref_tax_code_id': tax.ref_tax_code_id.id,
                     'include_base_amount': tax.include_base_amount,
                     'parent_id': tax.parent_id
-                   }
+                    }
             res.append(data)
             if tax.type == 'percent':
                 amount = cur_price_unit * tax.amount
@@ -125,20 +124,20 @@ class account_tax(models.Model):
                             if (latest[name + '_code_id'] and
                                 latest[name + '_sign'] and not
                                 r[name + '_code_id']):
-                                    r[name + '_code_id'] = latest[name +
-                                                                  '_code_id']
-                                    r[name + '_sign'] = latest[name + '_sign']
-                                    r['price_unit'] = latest['price_unit']
-                                    latest[name + '_code_id'] = False
+                                r[name + '_code_id'] = latest[name +
+                                                              '_code_id']
+                                r[name + '_sign'] = latest[name + '_sign']
+                                r['price_unit'] = latest['price_unit']
+                                latest[name + '_code_id'] = False
                         for name in ('tax', 'ref_tax'):
                             if (latest[name + '_code_id'] and
                                 latest[name + '_sign'] and not
                                 r[name + '_code_id']):
-                                    r[name + '_code_id'] = latest[name +
-                                                                  '_code_id']
-                                    r[name + '_sign'] = latest[name + '_sign']
-                                    r['amount'] = data['amount']
-                                    latest[name + '_code_id'] = False
+                                r[name + '_code_id'] = latest[name +
+                                                              '_code_id']
+                                r[name + '_sign'] = latest[name + '_sign']
+                                r['amount'] = data['amount']
+                                latest[name + '_code_id'] = False
 
             if tax.include_base_amount:
                 cur_price_unit += amount2
