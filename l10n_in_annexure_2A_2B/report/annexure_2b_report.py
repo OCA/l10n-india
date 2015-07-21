@@ -21,7 +21,7 @@
 ############################################################################
 
 from openerp import tools
-from openerp import models, fields, api
+from openerp import models, fields
 from openerp.addons.decimal_precision import decimal_precision as dp
 
 
@@ -63,7 +63,7 @@ class annexure_2b_report(models.Model):
                 ait.tax_code_id as tax_code_id,
                 ait.tax_amount as tax_amount
 
-            FROM 
+            FROM
                 account_invoice_line ail
                 LEFT JOIN account_invoice ai ON (ail.invoice_id = ai.id)
                 LEFT JOIN account_invoice_tax ait ON (ait.invoice_id = ai.id)
