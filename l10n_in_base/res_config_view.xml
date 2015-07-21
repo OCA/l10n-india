@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
-
 		<!-- Base Config Settings Form View -->
 		<record id="view_indian_base_configuration" model="ir.ui.view">
 			<field name="name">indian.base.settings</field>
@@ -13,7 +12,6 @@
 						or
 						<button string="Cancel" type="object" name="cancel" class="oe_link" />
 					</header>
-
 					<separator string="Indian Localization" />
 					<div>
 						<p>
@@ -40,7 +38,6 @@
 							</div>
 						</div>
 					</group>
-
 					<separator string="Warehouse" />
 					<group>
 						<label for="id" string="Warehouse Features" />
@@ -55,7 +52,6 @@
 							</div>
 						</div>
 					</group>
-
 					<group>
 						<label for="id" string="Product Tracking" />
 						<div name="product_features">
@@ -69,7 +65,6 @@
 							</div>
 						</div>
 					</group>
-
 					<group>
 						<label for="id" string="Gatepass Extensions" />
 						<div name="gatepass_features">
@@ -83,7 +78,6 @@
 							</div>
 						</div>
 					</group>
-
 					<group>
 						<label for="id" string="Finance Linking" />
 						<div name="finalce_linking">
@@ -91,12 +85,10 @@
 								<field name="module_l10n_in_excise_receipt" class="oe_inline" />
 								<label for="module_l10n_in_excise_receipt" />
 							</div>
-
 							<div name='module_l10n_in_packing_stock_invoice'>
 								<field name="module_l10n_in_packing_stock_invoice" class="oe_inline" />
 								<label for="module_l10n_in_packing_stock_invoice" />
 							</div>
-
 							<div name='module_l10n_in_dealer_discount_stock_invoice'>
 								<field name="module_l10n_in_dealer_discount_stock_invoice"
 									class="oe_inline" />
@@ -104,9 +96,7 @@
 							</div>
 						</div>
 					</group>
-
 					<separator string="Sales" />
-
 					<group>
 						<label for="id" string="Sales Features" />
 						<div name="sale_features">
@@ -118,19 +108,16 @@
 								<field name="module_sale_after_service" class="oe_inline" />
 								<label for="module_sale_after_service" />
 							</div>
-
 							<div name='group_round_off_sale_config'>
 								<field name="group_round_off_sale_config" class="oe_inline" />
 								<label for="group_round_off_sale_config" />
 							</div>
-
 							<div name='module_l10n_in_dealers_discount'>
 								<field name="module_l10n_in_dealers_discount" class="oe_inline" />
 								<label for="module_l10n_in_dealers_discount" />
 							</div>
 						</div>
 					</group>
-
 					<group>
 						<label for="id" string="Other Costs" />
 						<div name="sale_other_features">
@@ -138,17 +125,13 @@
 								<field name="module_l10n_in_sales_packing" class="oe_inline" />
 								<label for="module_l10n_in_sales_packing" />
 							</div>
-
 							<div name='group_dealer_price_on_sale_config'>
 								<field name="group_dealer_price_on_sale_config" class="oe_inline" />
 								<label for="group_dealer_price_on_sale_config" />
 							</div>
 						</div>
 					</group>
-
-
 					<separator string="Purchase" />
-
 					<group>
 						<label for="id" string="Purchase Features" />
 						<div name="purchase_features">
@@ -156,18 +139,15 @@
 								<field name="module_purchase_crm" class="oe_inline" />
 								<label for="module_purchase_crm" />
 							</div>
-							
 							<div name='module_l10n_in_purchase'>
 								<field name="module_l10n_in_purchase" class="oe_inline" />
 								<label for="module_l10n_in_purchase" />
 							</div>
-
 							<div name='group_discount_purchase_config'
 								attrs="{'invisible':[('module_l10n_in_purchase','=',False)]}">
 								<field name="group_discount_purchase_config" class="oe_inline" />
 								<label for="group_discount_purchase_config" />
 							</div>
-
 							<div name='group_round_off_purchase_config'
 								attrs="{'invisible':[('module_l10n_in_purchase','=',False)]}">
 								<field name="group_round_off_purchase_config" class="oe_inline" />
@@ -188,17 +168,13 @@
 								<field name="group_freight_config" class="oe_inline" />
 								<label for="group_freight_config" />
 							</div>
-
 							<div name='group_insurance_config'>
 								<field name="group_insurance_config" class="oe_inline" />
 								<label for="group_insurance_config" />
 							</div>
 						</div>
 					</group>
-
-
 					<separator string="Finance" />
-
 					<group>
 						<label for="id" string="Finance Feature" />
 						<div name="finance_features">
@@ -206,19 +182,16 @@
 								<field name="module_l10n_in_invoice_adjust" class="oe_inline" />
 								<label for="module_l10n_in_invoice_adjust" />
 							</div>
-
 							<div name='module_l10n_in_account_tax'>
 								<field name="module_l10n_in_account_tax" class="oe_inline" />
 								<label for="module_l10n_in_account_tax" />
 							</div>
-							
 							<div name='group_inter_state_tax_config'>
 								<field name="group_inter_state_tax_config" class="oe_inline" />
 								<label for="group_inter_state_tax_config" />
 							</div>
 						</div>
 					</group>
-					
 					<group>
 						<label for="id" string="Sales Features" />
 						<div name="sales_invoice_features">
@@ -234,7 +207,6 @@
 							</div>
 						</div>
 					</group>
-					
 					<group>
 						<label for="id" string="Invoice Printing" />
 						<div name="finance_invoice_features">
@@ -254,7 +226,6 @@
 							</div>
 						</div>
 					</group>
-
 					<group>
 						<label for="id" string="Tax Configuration"
 							attrs="{'invisible':[('module_l10n_in_account_tax','=',False)]}" />
@@ -264,24 +235,20 @@
 								<field name="group_tin_config" class="oe_inline" />
 								<label for="group_tin_config" />
 							</div>
-
 							<div name='group_cst_config'>
 								<field name="group_cst_config" class="oe_inline" />
 								<label for="group_cst_config" />
 							</div>
-
 							<div name='group_excise_config'>
 								<field name="group_excise_config" class="oe_inline" />
 								<label for="group_excise_config" />
 							</div>
-
 							<div name='group_service_config'>
 								<field name="group_service_config" class="oe_inline" />
 								<label for="group_service_config" />
 							</div>
 						</div>
 					</group>
-
 					<separator string="Tools" />
 					<group>
 						<label for="id" string="Web Tools" />
@@ -290,14 +257,12 @@
 								<field name="module_web_group_expand" class="oe_inline" />
 								<label for="module_web_group_expand" />
 							</div>
-
 							<div name='module_attachment_size_limit'>
 								<field name="module_attachment_size_limit" class="oe_inline" />
 								<label for="module_attachment_size_limit" />
 							</div>
 						</div>
 					</group>
-
 				</form>
 			</field>
 		</record>
