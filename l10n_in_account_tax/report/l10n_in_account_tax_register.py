@@ -20,29 +20,29 @@
 #
 ############################################################################
 
-from openerp import models,fields,api
+from openerp import models, fields
 from openerp import tools
 
 TAX_TYPES = [('excise', 'Central Excise'),
-    ('cess', 'Cess'),
-    ('hedu_cess', 'Higher Education Cess'),
-    ('vat', 'VAT'),
-    ('add_vat','Additional VAT'),
-    ('cst', 'Central Sales Tax'),
-    ('service', 'Service Tax'),
-    ('tds','Tax Deducted at Source'),
-    ('tcs','Tax Collected at Source'),
-    ('cform','C Form'),
-    ('dform','D Form'),
-    ('e1form', 'E1 Form'),
-    ('e2form', 'E2 Form'),
-    ('fform','F Form'),
-    ('hform','H Form'),
-    ('iform', 'I Form'),
-    ('jform', 'J Form'),
-    ('import_duty','Import Duty'),
-    ('other', 'Other')
-]
+             ('cess', 'Cess'),
+             ('hedu_cess', 'Higher Education Cess'),
+             ('vat', 'VAT'),
+             ('add_vat', 'Additional VAT'),
+             ('cst', 'Central Sales Tax'),
+             ('service', 'Service Tax'),
+             ('tds', 'Tax Deducted at Source'),
+             ('tcs', 'Tax Collected at Source'),
+             ('cform', 'C Form'),
+             ('dform', 'D Form'),
+             ('e1form', 'E1 Form'),
+             ('e2form', 'E2 Form'),
+             ('fform', 'F Form'),
+             ('hform', 'H Form'),
+             ('iform', 'I Form'),
+             ('jform', 'J Form'),
+             ('import_duty', 'Import Duty'),
+             ('other', 'Other')
+             ]
 
 
 class stock_indent_analysis_report(models.Model):
@@ -66,25 +66,28 @@ class stock_indent_analysis_report(models.Model):
     partner_id = fields.Many2one('res.partner', 'Partner')
     amount_untaxed = fields.Float('Invoice Amount')
     gender = fields.Selection(selection=[
-             ('male','Male'),
-             ('female','Female')],
-             string='Gender')
+                                         ('male', 'Male'),
+                                         ('female', 'Female')],
+                              string='Gender')
     type = fields.Selection(selection=[
-           ('out_invoice','Customer Invoice'),
-           ('in_invoice','Supplier Invoice'),
-           ('out_refund','Customer Refund'),
-           ('in_refund','Supplier Refund'),
-           ], string='Type', readonly=True, select=True, change_default=True,
-           track_visibility='always')
+                                       ('out_invoice', 'Customer Invoice'),
+                                       ('in_invoice', 'Supplier Invoice'),
+                                       ('out_refund', 'Customer Refund'),
+                                       ('in_refund', 'Supplier Refund'),
+                                       ], string='Type', readonly=True,
+                            select=True,
+                            change_default=True,
+                            track_visibility='always')
     state = fields.Selection(selection=[
-           ('draft','Draft'),
-           ('proforma','Pro-forma'),
-           ('proforma2','Pro-forma'),
-           ('open','Open'),
-           ('paid','Paid'),
-           ('cancel','Cancelled'),
-           ],string='Status', select=True, readonly=True,
-           track_visibility='onchange')
+                                        ('draft', 'Draft'),
+                                        ('proforma', 'Pro-forma'),
+                                        ('proforma2', 'Pro-forma'),
+                                        ('open', 'Open'),
+                                        ('paid', 'Paid'),
+                                        ('cancel', 'Cancelled'),
+                                        ], string='Status', select=True,
+                             readonly=True,
+                             track_visibility='onchange')
     number = fields.Char('Number')
     cst_no = fields.Char('CST No')
 
