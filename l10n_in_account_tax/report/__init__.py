@@ -20,6 +20,6 @@
 #
 ############################################################################
 
-import l10n_in_account_tax_register
+from . import l10n_in_account_tax_register
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
