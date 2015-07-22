@@ -35,9 +35,7 @@ the dealer price amount along with the customer price amount.
     'author': 'OpenERP SA',
     'website': 'http://www.openerp.com',
     'depends': ['l10n_in_base', 'product_container', 'account'],
-    'data': [
-        'l10n_in_dealer_discount_invoice.xml'
-            ],
+    'data': ['l10n_in_dealer_discount_invoice.xml'],
     'installable': True,
     'auto_install': False,
 }

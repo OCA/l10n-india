@@ -21,7 +21,6 @@
 ############################################################################
 
 from openerp import models, fields, api
-from openerp.tools.translate import _
 import openerp.addons.decimal_precision as dp
 
 
@@ -41,7 +40,7 @@ class account_invoice(models.Model):
             invoice.total_dealer_disc = total
 
     dealer_id = fields.Many2one('res.partner', string='Dealer', readonly=True,
-                                states={'draft':[('readonly', False)]})
+                                states={'draft': [('readonly', False)]})
     dealer_pricelist_id = fields.Many2one('product.pricelist',
                                           'Dealer Pricelist',
                                           domain=[('type', '=', 'sale')])
@@ -54,7 +53,6 @@ class account_invoice(models.Model):
     def onchange_dealer_id(self):
         if not self.dealer_id:
             self.dealer_pricelist_id = False
-        val = {}
         pricelist = (self.dealer_id.property_product_pricelist and
                      self.dealer_id.property_product_pricelist.id or False)
         if pricelist:
@@ -75,7 +73,7 @@ class account_invoice_line(models.Model):
                           type='out_invoice', partner_id=False,
                           fposition_id=False, price_unit=False,
                           currency_id=False, company_id=None):
-        res = {'value':{}}
+        res = {'value': {}}
         if product:
             res = super(account_invoice_line,
                         self).product_id_change(product, uom_id, qty, name,
