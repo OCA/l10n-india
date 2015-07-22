@@ -20,7 +20,7 @@
 #
 ############################################################################
 import time
-#from openerp import models, fields, api, _
+from openerp import models, fields, api
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
@@ -43,10 +43,7 @@ class sale_order_line(models.Model):
     @api.model
     def _prepare_order_line_invoice_line(self, line, account_id=False):
         res = super(sale_order_line,
-                    self)._prepare_order_line_invoice_line(line=line,
-                                                           account_id=acco/
-                                                           unt_id)
-                                                           
+                    self)._prepare_order_line_invoice_line(line,account_id)
         res = dict(res, price_dealer=line.price_dealer * line.product_uom_qty,
                    dealer_discount=(line.dealer_discount *
                                     line.product_uom_qty),
@@ -89,8 +86,7 @@ class sale_order_line(models.Model):
                                                        update_tax=False,
                                                        date_order=date_order,
                                                        packaging=False,
-                                                       fiscal_position=fis/
-                                                       cal_position,
+                                                       fiscal_position,
                                                        flag=flag,
                                                        context=context)
             price_unit = res['value']['price_unit']
@@ -118,7 +114,6 @@ class sale_order(models.Model):
         if not self.dealer_id:
             self.dealer_pricelist_id = False
 
-#        val = {}
         pricelist = (self.dealer_id.property_product_pricelist and
                      self.dealer_id.property_product_pricelist.id or False)
         if pricelist:
@@ -137,7 +132,6 @@ class sale_order(models.Model):
     @api.model
     def _make_invoice(self, order, lines):
         inv_obj = self.env['account.invoice']
-#        obj_invoice_line = self.env['account.invoice.line']
         invoiced_sale_line_ids = self.env['sale.order.line'
                                           ].search([('order_id',
                                                      '=', order.id),
