@@ -21,11 +21,11 @@
 ############################################################################
 
 import time
-
 from openerp import models, fields, api
 from openerp.tools.translate import _
 import openerp.addons.decimal_precision as dp
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from openerp.exceptions import Warning
 
 
 class sale_order_line(models.Model):
@@ -43,10 +43,10 @@ class sale_order_line(models.Model):
         return res
 
     @api.multi
-    def product_id_change(self, pricelist, product, qty=0,
-            uom=False, qty_uos=0, uos=False, name='', partner_id=False,
-            lang=False, update_tax=True, date_order=False, packaging=False,
-            fiscal_position=False, flag=False):
+    def product_id_change(self, pricelist, product, qty=0, uom=False,
+                          qty_uos=0, uos=False, name='', partner_id=False,
+                          lang=False, update_tax=True, date_order=False,
+                          packaging=False, fiscal_position=False, flag=False):
         '''
         The purpose of this function to get value of price unit, list price,
         packing amount on product change.
@@ -82,10 +82,10 @@ class sale_order_line(models.Model):
                 package_product = package.ul.container_id
                 qty_factor = round(qty / package.qty)
             else:
-                raise osv.except_osv(_('Warning!'),
-                                     _("""Unable to compute packaging cost as
-                                     you have not define product
-                                     on box %s""" % (package.ul.name)))
+                raise Warning(_('Warning!'),
+                              _("""Unable to compute packaging cost as
+                              you have not define product
+                              on box %s""" % (package.ul.name)))
         if package_product:
             packing_res = super(sale_order_line,
                                 self).product_id_change(pricelist,
@@ -98,7 +98,7 @@ class sale_order_line(models.Model):
                                                         fiscal_position=
                                                         fiscal_position,
                                                         flag=flag)
-            res['value']['packaging_cost'] = (qty_factor * 
+            res['value']['packaging_cost'] = (qty_factor *
                                               packing_res['value'
                                                           ]['price_unit'])
         else:
@@ -114,10 +114,6 @@ class sale_order(models.Model):
                  'order_line.discount', 'order_line.product_uom_qty',
                  'order_line.packaging_cost', 'round_off')
     def _amount_all(self):
-        amount_untaxed = 0.0
-        amount_tax = 0.0
-        amount_total = 0.0
-        amount_packing = 0.0
         for order in self:
             val = val1 = val2 = 0.0
             cur = order.pricelist_id.currency_id
@@ -128,7 +124,7 @@ class sale_order(models.Model):
             order.amount_tax = cur.round(val)
             order.amount_untaxed = cur.round(val1)
             order.amount_packing = cur.round(val2)
-            order.amount_total = (order.amount_untaxed + order.amount_tax + 
+            order.amount_total = (order.amount_untaxed + order.amount_tax +
                                   order.amount_packing + order.round_off)
 
     amount_untaxed = fields.Float(compute=_amount_all,
@@ -155,14 +151,13 @@ class sale_order(models.Model):
     def _get_default_values(self, preline):
         res = super(sale_order, self)._get_default_values(preline=preline)
         res = dict(res,
-          packaging_cost= -preline.packaging_cost
-        )
+                   packaging_cost=-preline.packaging_cost
+                   )
         return res
 
     @api.model
     def _make_invoice(self, order, lines):
         inv_obj = self.env['account.invoice']
-        obj_invoice_line = self.env['account.invoice.line']
         invoiced_sale_line_ids = self.env['sale.order.line'
                                           ].search([('order_id',
                                                      '=', order.id),
@@ -176,10 +171,10 @@ class sale_order(models.Model):
         for preinv in order.invoice_ids:
             if (preinv.state not in ('cancel',) and preinv.id not in
                 from_line_invoice_ids):
-                for preline in preinv.invoice_line:
-                    res = self._get_default_values(preline)
-                    inv_line_id = preline.copy(res)
-                    lines.append(inv_line_id.id)
+                    for preline in preinv.invoice_line:
+                        res = self._get_default_values(preline)
+                        inv_line_id = preline.copy(res)
+                        lines.append(inv_line_id.id)
         inv = self._prepare_invoice(order, lines)
         inv_id = inv_obj.create(inv)
         time_obj = time.strftime(DEFAULT_SERVER_DATE_FORMAT)
@@ -221,11 +216,9 @@ class sale_advance_payment_inv(models.TransientModel):
                 inv_amount = wizard.amount
                 percent = inv_amount / sale.amount_total
                 packing_amount = sale.amount_packing * percent / 100
-            res = {
-             'packaging_cost': packing_amount
-            }
+            res = {'packaging_cost': packing_amount
+                   }
             update_val[sale.id] = res
-
         # TODO: Need to re-implement it in best way
         for line in result:
             line[1].get('invoice_line')[0][2].update(update_val.get(line[0]))
