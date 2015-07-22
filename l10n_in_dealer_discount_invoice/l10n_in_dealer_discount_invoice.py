@@ -29,8 +29,7 @@ class account_invoice(models.Model):
 
     @api.multi
     @api.depends('dealer_pricelist_id', 'invoice_line',
-                 'invoice_line.price_unit', 'invoice_line.price_dealer',
-                 'invoice_line.product_uom')
+                 'invoice_line.price_unit', 'invoice_line.price_dealer')
     def _total_dealer_disc(self):
         for invoice in self:
             total = 0.0
