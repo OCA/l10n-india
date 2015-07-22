@@ -65,7 +65,6 @@ class account_invoice(models.Model):
                  'invoice_line.discount', 'invoice_line.invoice_id',
                  'invoice_line.packaging_cost', 'round_off')
     def _amount_all(self):
-        res = {}
         amount_untaxed = 0.0
         amount_tax = 0.0
         amount_total = 0.0
@@ -79,9 +78,8 @@ class account_invoice(models.Model):
             self.amount_untaxed = amount_untaxed
             self.amount_packing = amount_packing
             self.amount_tax = amount_tax
-            self.amount_total = (amount_untaxed + amount_packing + 
+            self.amount_total = (amount_untaxed + amount_packing +
                                  amount_tax + self.round_off)
-
     amount_untaxed = fields.Float(compute=_amount_all,
                                   digits_compute=dp.get_precision('Account'),
                                   string='Subtotal',
