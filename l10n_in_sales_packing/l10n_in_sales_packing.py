@@ -166,9 +166,8 @@ class sale_order(models.Model):
                     from_line_invoice_ids.append(invoice_line_id.
                                                  invoice_id.id)
         for preinv in order.invoice_ids:
-            if (preinv.
-                state not in ('cancel',) and
-                preinv.id not in from_line_invoice_ids):
+            if (preinv.state not in ('cancel',) and (preinv.id not in
+                                                     from_line_invoice_ids)):
                 for preline in preinv.invoice_line:
                     res = self._get_default_values(preline)
                     inv_line_id = preline.copy(res)
