@@ -30,7 +30,7 @@ class sale_order(models.Model):
     def _get_default_values(self, preline):
         res = {
             'invoice_id': False,
-            'price_unit':-preline.price_unit,
+            'price_unit': -preline.price_unit,
             }
         return res
 sale_order()
