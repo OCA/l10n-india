@@ -20,7 +20,7 @@
 #
 ############################################################################
 import time
-from openerp import models, fields, api, _
+#from openerp import models, fields, api, _
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
@@ -44,8 +44,9 @@ class sale_order_line(models.Model):
     def _prepare_order_line_invoice_line(self, line, account_id=False):
         res = super(sale_order_line,
                     self)._prepare_order_line_invoice_line(line=line,
-                                                           account_id=
-                                                           account_id)
+                                                           account_id=acco/
+                                                           unt_id)
+                                                           
         res = dict(res, price_dealer=line.price_dealer * line.product_uom_qty,
                    dealer_discount=(line.dealer_discount *
                                     line.product_uom_qty),
@@ -88,8 +89,8 @@ class sale_order_line(models.Model):
                                                        update_tax=False,
                                                        date_order=date_order,
                                                        packaging=False,
-                                                       fiscal_position=
-                                                       fiscal_position,
+                                                       fiscal_position=fis/
+                                                       cal_position,
                                                        flag=flag,
                                                        context=context)
             price_unit = res['value']['price_unit']
@@ -117,7 +118,7 @@ class sale_order(models.Model):
         if not self.dealer_id:
             self.dealer_pricelist_id = False
 
-        val = {}
+#        val = {}
         pricelist = (self.dealer_id.property_product_pricelist and
                      self.dealer_id.property_product_pricelist.id or False)
         if pricelist:
@@ -127,16 +128,16 @@ class sale_order(models.Model):
     def _get_default_values(self, preline):
         res = super(sale_order, self)._get_default_values(preline=preline)
         res = dict(res,
-            price_dealer= -preline.price_dealer,
-            dealer_discount= -preline.dealer_discount,
-            dealer_discount_per= -preline.dealer_discount_per
-        )
+                   price_dealer= -preline.price_dealer,
+                   dealer_discount= -preline.dealer_discount,
+                   dealer_discount_per= -preline.dealer_discount_per
+                   )
         return res
 
     @api.model
     def _make_invoice(self, order, lines):
         inv_obj = self.env['account.invoice']
-        obj_invoice_line = self.env['account.invoice.line']
+#        obj_invoice_line = self.env['account.invoice.line']
         invoiced_sale_line_ids = self.env['sale.order.line'
                                           ].search([('order_id',
                                                      '=', order.id),
@@ -153,7 +154,7 @@ class sale_order(models.Model):
                     inv_line_id = preline.copy(res)
                     lines.append(inv_line_id.id)
         inv = self._prepare_invoice(order, lines)
-        inv.update({'dealer_id':order.dealer_id.id})
+        inv.update({'dealer_id': order.dealer_id.id})
         inv_id = inv_obj.create(inv)
         time_obj = time.strftime(DEFAULT_SERVER_DATE_FORMAT)
         data = inv_id.onchange_payment_term_date_invoice(inv['payment_term'],
