@@ -97,7 +97,7 @@ class sale_order_line(models.Model):
                                                         fiscal_position=
                                                         fiscal_position,
                                                         flag=flag)
-            res['value']['packaging_cost'] = (qty_factor *
+            res['value']['packaging_cost'] = (qty_factor * 
                                               packing_res['value'
                                                           ]['price_unit'])
         else:
@@ -123,7 +123,7 @@ class sale_order(models.Model):
             order.amount_tax = cur.round(val)
             order.amount_untaxed = cur.round(val1)
             order.amount_packing = cur.round(val2)
-            order.amount_total = (order.amount_untaxed + order.amount_tax +
+            order.amount_total = (order.amount_untaxed + order.amount_tax + 
                                   order.amount_packing + order.round_off)
 
     amount_untaxed = fields.Float(compute=_amount_all,
@@ -149,7 +149,7 @@ class sale_order(models.Model):
     @api.multi
     def _get_default_values(self, preline):
         res = super(sale_order, self)._get_default_values(preline=preline)
-        res = dict(res,packaging_cost=-preline.packaging_cost)
+        res = dict(res, packaging_cost= -preline.packaging_cost)
         return res
 
     @api.model
@@ -166,8 +166,9 @@ class sale_order(models.Model):
                     from_line_invoice_ids.append(invoice_line_id.
                                                  invoice_id.id)
         for preinv in order.invoice_ids:
-            if (preinv.state not in ('cancel',
-                                     ) and preinv.id not in from_line_invoice_ids):
+            if (preinv.
+                state not in ('cancel',) and
+                 preinv.id not in from_line_invoice_ids):
                 for preline in preinv.invoice_line:
                     res = self._get_default_values(preline)
                     inv_line_id = preline.copy(res)
