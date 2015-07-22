@@ -40,7 +40,7 @@ class sale_order(models.Model):
         line_obj = self.env['sale.order.line']
         result = {'order_line': []}
         lines = []
- 
+
         if not self.template_id:
             self.template_id = result
 
@@ -91,10 +91,9 @@ class sale_order(models.Model):
             result = None
             try:
                 result = eval(exp,
-                              {
-                                'object': template,
-                                'context': dict(self._context),
-                                'time': time,
+                              {'object': template,
+                               'context': dict(self._context),
+                               'time': time,
                               })
             except:
                 raise Warning(_('Error!'),
@@ -104,7 +103,7 @@ class sale_order(models.Model):
                 return str("--------")
             return tools.ustr(result)
 
-        com = re.compile('(\[\[.+?\]\])')
+        com = re.compile(r'(\[\[.+?\]\])')
         message = com.sub(merge, note)
 
         return message
