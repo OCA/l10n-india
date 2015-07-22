@@ -43,7 +43,7 @@ class sale_order_line(models.Model):
     @api.model
     def _prepare_order_line_invoice_line(self, line, account_id=False):
         res = super(sale_order_line,
-                    self)._prepare_order_line_invoice_line(line,account_id)
+                    self)._prepare_order_line_invoice_line(line, account_id)
         res = dict(res, price_dealer=line.price_dealer * line.product_uom_qty,
                    dealer_discount=(line.dealer_discount *
                                     line.product_uom_qty),
@@ -86,6 +86,7 @@ class sale_order_line(models.Model):
                                                        update_tax=False,
                                                        date_order=date_order,
                                                        packaging=False,
+                                                       fiscal_position = \
                                                        fiscal_position,
                                                        flag=flag,
                                                        context=context)
@@ -123,9 +124,9 @@ class sale_order(models.Model):
     def _get_default_values(self, preline):
         res = super(sale_order, self)._get_default_values(preline=preline)
         res = dict(res,
-                   price_dealer= -preline.price_dealer,
-                   dealer_discount= -preline.dealer_discount,
-                   dealer_discount_per= -preline.dealer_discount_per
+                   price_dealer=-preline.price_dealer,
+                   dealer_discount=-preline.dealer_discount,
+                   dealer_discount_per=-preline.dealer_discount_per
                    )
         return res
 
