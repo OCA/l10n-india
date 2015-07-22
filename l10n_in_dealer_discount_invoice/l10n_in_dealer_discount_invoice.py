@@ -28,9 +28,8 @@ class account_invoice(models.Model):
     _inherit = 'account.invoice'
 
     @api.multi
-    @api.depends('dealer_pricelist_id',
-                 'invoice_line.price_unit', 'invoice_line.price_dealer',
-                 'invoice_line.product_uom_qty')
+    @api.depends('dealer_pricelist_id', 'invoice_line',
+                 'invoice_line.price_unit', 'invoice_line.price_dealer')
     def _total_dealer_disc(self):
         for invoice in self:
             total = 0.0
