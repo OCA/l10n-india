@@ -35,10 +35,9 @@ class sale_order_line(models.Model):
 
     @api.model
     def _prepare_order_line_invoice_line(self, line, account_id=False):
-        res = super(sale_order_line,
-                    self)._prepare_order_line_invoice_line(line=line,
-                                                           account_id=
-                                                           account_id)
+        res = super(sale_order_line, self
+                    )._prepare_order_line_invoice_line(line=line,
+                                                       account_id=account_id)
         res = dict(res, packaging_cost=line.packaging_cost)
         return res
 
@@ -98,7 +97,7 @@ class sale_order_line(models.Model):
                                                         fiscal_position=
                                                         fiscal_position,
                                                         flag=flag)
-            res['value']['packaging_cost'] = (qty_factor *
+            res['value']['packaging_cost'] = (qty_factor * 
                                               packing_res['value'
                                                           ]['price_unit'])
         else:
@@ -124,7 +123,7 @@ class sale_order(models.Model):
             order.amount_tax = cur.round(val)
             order.amount_untaxed = cur.round(val1)
             order.amount_packing = cur.round(val2)
-            order.amount_total = (order.amount_untaxed + order.amount_tax +
+            order.amount_total = (order.amount_untaxed + order.amount_tax + 
                                   order.amount_packing + order.round_off)
 
     amount_untaxed = fields.Float(compute=_amount_all,
@@ -151,7 +150,7 @@ class sale_order(models.Model):
     def _get_default_values(self, preline):
         res = super(sale_order, self)._get_default_values(preline=preline)
         res = dict(res,
-                   packaging_cost=-preline.packaging_cost
+                   packaging_cost= -preline.packaging_cost
                    )
         return res
 
@@ -171,7 +170,7 @@ class sale_order(models.Model):
         for preinv in order.invoice_ids:
             if (preinv.state not in ('cancel',) and preinv.id not in
                 from_line_invoice_ids):
-                    for preline in preinv.invoice_line:
+               for preline in preinv.invoice_line:
                         res = self._get_default_values(preline)
                         inv_line_id = preline.copy(res)
                         lines.append(inv_line_id.id)
