@@ -67,7 +67,6 @@ class account_invoice(models.Model):
     def _amount_all(self):
         amount_untaxed = 0.0
         amount_tax = 0.0
-        amount_total = 0.0
         amount_packing = 0.0
         for invoice in self:
             for line in invoice.invoice_line:
