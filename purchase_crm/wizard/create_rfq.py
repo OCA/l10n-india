@@ -35,6 +35,7 @@ class crm_make_purchase(models.TransientModel):
                                    required=True)
     warehouse_id = fields.Many2one('stock.warehouse', 'Warehouse',
                                    required=True)
+
     @api.multi
     def convert_to_rfq(self):
         """
@@ -50,7 +51,6 @@ class crm_make_purchase(models.TransientModel):
         case_obj = self.env['crm.lead']
         purchase_obj = self.env['purchase.order']
         purchase_line_obj = self.env['purchase.order.line']
-        partner_obj = self.env['res.partner']
         product_obj = self.env['product.product']
         opp_ids = self._context and self._context.get('active_ids', [])
 
