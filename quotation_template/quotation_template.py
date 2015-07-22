@@ -94,7 +94,7 @@ class sale_order(models.Model):
                               {'object': template,
                                'context': dict(self._context),
                                'time': time,
-                              })
+                               })
             except:
                 raise Warning(_('Error!'),
                               _("""Wrong python condition defined for
