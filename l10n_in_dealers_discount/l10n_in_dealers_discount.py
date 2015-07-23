@@ -75,20 +75,21 @@ class sale_order_line(models.Model):
         dealer_id = context.get('dealer_id')
         dealer_pricelist_id = context.get('dealer_pricelist_id')
         if dealer_id and dealer_pricelist_id:
-            rec=super(sale_order_line,
-                      self).product_id_change(dealer_pricelist_id,
-                                              product, qty=qty,
-                                              uom=uom,
-                                              qty_uos=qty_uos,
-                                              uos=uos, name=name,
-                                              partner_id=dealer_id,
-                                              lang=lang,
-                                              update_tax=False,
-                                              date_order=date_order,
-                                              packaging=False,
-                                              fiscal_position=fiscal_position,
-                                              flag=flag,
-                                              context=context)
+            rec = super(sale_order_line,
+                        self
+                        ).product_id_change(dealer_pricelist_id,
+                                            product, qty=qty,
+                                            uom=uom,
+                                            qty_uos=qty_uos,
+                                            uos=uos, name=name,
+                                            partner_id=dealer_id,
+                                            lang=lang,
+                                            update_tax=False,
+                                            date_order=date_order,
+                                            packaging=False,
+                                            fiscal_position=fiscal_position,
+                                            flag=flag,
+                                            context=context)
             price_unit = res['value']['price_unit']
             price_dealer = rec['value']['price_unit']
             dealer_discount = price_unit - price_dealer
