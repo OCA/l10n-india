@@ -46,7 +46,7 @@ class stock_picking(models.Model):
                                                 move_line=move_line,
                                                 invoice_id=invoice_id,
                                                 invoice_vals=invoice_vals)
-        res = dict(res,price_dealer=(move_line.price_dealer *
+        res = dict(res, price_dealer=(move_line.price_dealer *
                                      move_line.product_qty),
                    dealer_discount=(move_line.dealer_discount *
                                     move_line.product_qty),
