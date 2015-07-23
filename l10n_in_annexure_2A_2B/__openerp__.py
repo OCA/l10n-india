@@ -30,7 +30,7 @@
     'description': """
 Annexure 2A is the Summary of DVAT-30 (Purchases),
 and Annexure 2B is the Summary of DVAT-31 (Sales).
-==================================================
+
 
 """,
     'depends': ['l10n_in_base', 'l10n_in_account_tax', 'sale', 'purchase'],

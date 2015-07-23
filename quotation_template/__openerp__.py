@@ -44,7 +44,6 @@
     * Provide Discounts on Templates
     * Use different Pricelists and Currencies
 
-    Video Tutorial: http://www.youtube.com/watch?v=PTy3TOH9tQM
 
     This module was developed by Serpent Consulting Services Pvt. Ltd
     (OpenERP India). Not covered under OpenERP / Odoo Maintenance Contract or
