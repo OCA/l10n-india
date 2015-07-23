@@ -39,11 +39,11 @@ class stock_picking(models.Model):
     def _prepare_invoice_line(self, group, picking, move_line, invoice_id,
                               invoice_vals):
         res = super(stock_picking,
-                    self)._prepare_invoice_line(group=group,picking=picking,
+                    self)._prepare_invoice_line(group=group, picking=picking,
                                                 move_line=move_line,
                                                 invoice_id=invoice_id,
                                                 invoice_vals=invoice_vals)
-        res = dict(res,packaging_cost=move_line.packaging_cost *
+        res = dict(res, packaging_cost=move_line.packaging_cost *
                    move_line.product_qty)
         return res
 
