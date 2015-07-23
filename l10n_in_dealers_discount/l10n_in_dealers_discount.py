@@ -87,7 +87,7 @@ class sale_order_line(models.Model):
                                                        date_order=date_order,
                                                        packaging=False,
                                                        fiscal_position=\
-                                                        fiscal_position,
+                                                            fiscal_position,
                                                        flag=flag,
                                                        context=context)
             price_unit = res['value']['price_unit']
