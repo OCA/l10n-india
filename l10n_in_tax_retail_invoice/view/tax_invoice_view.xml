@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+         <template id="account_invoice_tax_excise">
+                    <t t-call="report.html_container">
+                        <t t-foreach="docs" t-as="o">
+                            <t t-call="report.external_layout">
+                                <div class="page">
+                                    <table width="100%">
+                                       <tr>
+                                            <th width="100%" style="text-align:center;">TAX / RETAIL INVOICE</th>
+                                       </tr>
+                                    </table>
+                                    <br></br>
+                                    <table width="100%">
+                                        <tr>
+                                            <th width="30%" style="text-align:left;">Company</th>
+                                            <th width="20%" style="text-align:left;">&#160;</th>
+                                            <th width="25%" style="text-align:left;">Invoice No</th>
+                                            <th width="25%" style="text-align:left;">Invoice Date</th>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%" style="text-align:left;" rowspan="4">
+                                            <address t-field="o.company_id.partner_id"
+                                                t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' />
+                                            <span t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></span>
+                                            </td>
+                                            <td width="20%" style="text-align:left;">&#160;</td>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.number"/></td>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.date_invoice"/></td>
+                                        </tr>
+                                        <tr><td colsapn="4">&#160;</td></tr>
+                                        <tr>
+                                            <th width="20%" style="text-align:left;">&#160;</th>
+                                            <th width="25%" style="text-align:left;">Dispatch Document No.</th>
+                                            <th width="25%" style="text-align:left;">Dispatch Date</th>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%" style="text-align:left;">&#160;</th>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.number"/></td>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.date_invoice"/></td>
+                                        </tr>
+                                        <tr><td colsapn="4">&#160;</td></tr>
+                                        <tr>
+                                            <th width="30%" style="text-align:left;">Buyer's Name</th>
+                                            <th width="20%" style="text-align:left;">&#160;</th>
+                                            <th width="25%" style="text-align:left;">Excise Invoice N </th>
+                                            <th width="25%" style="text-align:left;">Excise Invoice Date</th>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%" style="text-align:left;" rowspan="4">
+                                            <address t-field="o.partner_id"
+                                                t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' />
+                                            <span t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></span>
+                                            </td>
+                                            <td width="20%" style="text-align:left;">&#160;</td>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.number"/></td>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.date_invoice"/></td>
+                                        </tr>
+                                        <tr><td colspan="4">&#160;</td></tr>
+                                        <tr>
+                                            <td width="20%" style="text-align:left;">&#160;</td>
+                                            <th width="25%" style="text-align:left;">Buyers Order No</th>
+                                            <th width="25%" style="text-align:left;">Buyers Order Date</th>
+                                        </tr>
+                                        <tr>
+                                            <td width="20%" style="text-align:left;">&#160;</td>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.name"/></td>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.date_invoice"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th width="30%" style="text-align:left;">Consignee</th>
+                                            <th width="20%" style="text-align:left;">&#160;</th>
+                                            <th width="25%" style="text-align:left;">Delivery Note</th>
+                                            <th width="25%" style="text-align:left;">Delivery Date</th>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%" style="text-align:left;" rowspan="3">
+                                            <address t-field="o.delivery_address_id"
+                                             t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' />
+                                            <span t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></span></td>
+                                            <td width="20%" style="text-align:left;">&#160;</td>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.number"/></td>
+                                            <td width="25%" style="text-align:left;"><span t-field="o.number"/></td>
+                                        </tr>
+                                        <tr><td colspan="4">&#160;</td></tr>
+                                        <tr>
+                                            <td width="20%" style="text-align:left;">&#160;</td>
+                                            <th width="25%" style="text-align:left;">LR Number</th>
+                                            <th width="25%" style="text-align:left;">Date</th>
+                                        </tr>
+                                        <tr><td colspan="4">&#160;</td></tr>
+                                    </table>
+                                    <t t-foreach="o.invoice_line" t-as="l">
+                                    <table width="100%">
+                                        <tr>
+                                            <th width="40%" style="text-align:center;border:2px solid gray;">Description of Goods</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">Ex-chapeter No.</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">Tariff / HSN Clasification</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">Quantity</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">Rate</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">Discount</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">Amount</th>
+                                        </tr>
+                                     
+                                        <tr>
+                                            <td width="40%" style="text-align:center;border:2px solid gray;"><span t-field="l.name"/></td>
+                                            <td width="10%" style="text-align:center;border:2px solid gray;"><span t-field="l.product_id.categ_id.chapter_no"/></td>
+                                            <td width="10%" style="text-align:center;border:2px solid gray;"><span t-field="l.product_id.categ_id.hsn"/></td>
+                                            <td width="10%" style="text-align:center;border:2px solid gray;"><span t-field="l.quantity"/></td>
+                                            <td width="10%" style="text-align:center;border:2px solid gray;"><span t-field="l.price_unit"/></td>
+                                            <td width="10%" style="text-align:center;border:2px solid gray;"><span t-field="l.discount"/></td>
+                                            <td width="10%" style="text-align:center;border:2px solid gray;"><span t-field="l.price_subtotal"/></td> 
+                                        </tr>
+                                        <t t-foreach="o.tax_line" t-as="t">
+                                            <tr>
+                                                <td width="40%" style="text-align:center;border:2px solid gray;"><span t-field="t.name"/></td>
+                                                <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                                <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                                <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                                <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                                <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                                <td width="10%" style="text-align:center;border:2px solid gray;"><span t-field="t.amount"/></td>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <th width="40%" style="text-align:center;border:2px solid gray;">Dealer Disc.</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                            <td width="10%" style="text-align:center;border:2px solid gray;"><span t-field="o.total_dealer_disc"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th width="40%" style="text-align:center;border:2px solid gray;">Total</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                            <td width="10%" style="text-align:center;border:2px solid gray;"><span t-esc="get_quantity(0)"/></td>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                            <th width="10%" style="text-align:center;border:2px solid gray;">&#160;</th>
+                                            <td width="10%" style="text-align:center;border:2px solid gray;"><span t-field="o.total_dealer_disc"/></td>
+                                        </tr>
+                                    </table>
+                                    <br></br>
+                                    </t>
+                                    <p>Remarks:<span t-field="o.comment"/></p>
+                                    <p>Company's VAT TIN:</p>
+                                    <p>Company's CST No.:</p>
+                                    <p>Company's ECC No.:</p>
+                                    <p>Buyer's VAT TIN: <span t-field="o.partner_id.tin_no"/></p>
+                                    <p>Buyer's CST No.: <span t-field="o.partner_id.cst_no"/></p>
+                                    <table style="border:2px solid gray;">
+                                        <tr>
+                                            <td width="75%" style="text-align:left;">&#160;&#160;Declaration</td>
+                                            <td width="25%" style="text-align:right;">For <span t-field="o.company_id.name"/>&#160;&#160;</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="75%" style="text-align:left;">&#160;&#160;Certified that the particulars are true and correct and</td>
+                                            <td width="25%" style="text-align:right;">&#160;&#160;</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="75%" style="text-align:left;">&#160;&#160;the amount indicated represent the price actually</td>
+                                            <td width="25%" style="text-align:right;">&#160;&#160;</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="75%" style="text-align:left;">&#160;&#160;charged and that there is no flow of any additional</td>
+                                            <td width="25%" style="text-align:right;">Authorized Signatory&#160;&#160;</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="75%" style="text-align:left;">&#160;&#160;consideration directly or indirectly from the buyer.</td>
+                                            <td width="25%" style="text-align:right;">&#160;&#160;</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </t>
+                        </t>
+                    </t>
+        </template>
+    </data>
+</openerp>

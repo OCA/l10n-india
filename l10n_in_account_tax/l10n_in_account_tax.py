@@ -298,15 +298,13 @@ class account_invoice(models.Model):
     @api.multi
     def invoice_print(self):
         report = super(account_invoice, self).invoice_print()
-
         invoice = self.browse(self.ids)
         if invoice.invoice_type_id and invoice.invoice_type_id.report:
             report_new = {
                 'type': invoice.invoice_type_id.report.type,
                 'report_name': invoice.invoice_type_id.report.report_name
             }
-            report.update(report_new)
-
+            report = self.env['report'].get_action(self,report_new.get('report_name'))
         return report
 
 res_company()
