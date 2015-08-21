@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd. (<http://www.serpentcs.com>)
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd. (<http://www.serpentcs.com>)
 #    Copyright (C) 2004 OpenERP SA (<http://www.openerp.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -32,8 +32,8 @@ This module adds a new report on invoices for printing retail invoice which will
 
 This module was developed by TinyERP Pvt Ltd (OpenERP India). Not covered under OpenERP / Odoo Maintenance Contract or Business Pack. Contact at india@openerp.com if you are looking for support or customization.
 """,
-    'author': 'OpenERP SA',
-    'website': 'http://www.openerp.com',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'images': [],
     'depends': ['l10n_in_base', 'l10n_in_account_tax', 'l10n_in_dealer_discount_invoice', 'l10n_in_packing_invoice'],
     'data': [

@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -34,8 +34,8 @@ On the Quotations/Sales orders you can select the dealer
 and the relevant pricelist and if the invoicing is from delivery,
 this amount gets transferred to invoice from the sales orders.
 """,
-    'author': 'OpenERP SA',
-    'website': 'http://www.openerp.com',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'depends': ['l10n_in_base', 'l10n_in_dealers_discount', 'sale_stock'],
     'installable': True,
     'auto_install': False,

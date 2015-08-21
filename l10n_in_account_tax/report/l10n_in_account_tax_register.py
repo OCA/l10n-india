@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,8 +20,7 @@
 #
 ############################################################################
 
-from openerp import models, fields
-from openerp import tools
+from openerp import models, fields, tools
 
 TAX_TYPES = [('excise', 'Central Excise'),
              ('cess', 'Cess'),
@@ -116,5 +115,3 @@ class stock_indent_analysis_report(models.Model):
                 left join res_partner p on (i.partner_id=p.id)
             )""")
 stock_indent_analysis_report()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

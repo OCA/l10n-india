@@ -2,7 +2,7 @@
 ##########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -31,8 +31,8 @@
 - Fix a problem of computation of tax (with child tax) on tax,
    i.e VAT 5% on (product cost + Excise 12.36 %)
 """,
-    'author': 'OpenERP SA',
-    'website': 'http://www.openerp.com',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'images': [],
     'depends': ['account', 'l10n_in_base'],
     'data': [
@@ -43,4 +43,3 @@
     'auto_install': False,
 }
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

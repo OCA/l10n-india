@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -32,5 +32,3 @@ class res_partner(models.Model):
     def onchange_city(self):
         if self.city_id:
             self.state_id = self.city_id.state_id.id
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

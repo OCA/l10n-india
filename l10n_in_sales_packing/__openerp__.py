@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -36,8 +36,8 @@ container product's sale price as packaging price and calculate
 final price on the sales order.
 
 """,
-    'author': 'OpenERP SA',
-    'website': 'http://www.openerp.com',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'depends': ['l10n_in_base',
                 'product_container',
                 'l10n_in_sale_invoice_reverse',

@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,10 +22,10 @@
 {
     'name': 'Annexure 2A/2B',
     'version': '1.0',
-    'author': 'OpenERP SA',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'sequence': 120,
     'category': 'Indian Localization',
-    'website': 'http://www.openerp.com',
     'summary': 'Annexure 2A/2B',
     'description': """
 Annexure 2A is the Summary of DVAT-30 (Purchases),

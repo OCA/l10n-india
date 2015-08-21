@@ -2,7 +2,7 @@
 ############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -40,8 +40,8 @@ When the invoice is created for the sales order,
 the amount is getting transferred to the invoice.
 
 """,
-    'author': 'OpenERP SA',
-    'website': 'http://www.openerp.com',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'depends': ['l10n_in_base', 'l10n_in_sales_packing', 'sale_stock'],
     'installable': True,
     'auto_install': False,

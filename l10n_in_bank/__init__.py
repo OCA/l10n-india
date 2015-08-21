@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,5 +19,3 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 ############################################################################
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

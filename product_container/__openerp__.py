@@ -2,7 +2,7 @@
 ############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,10 +22,10 @@
 {
     'name': 'Product Container',
     'version': '1.0',
-    'author': 'OpenERP SA',
     'sequence': 110,
     'category': 'Warehouse Management',
-    'website': 'http://www.openerp.com',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'summary': 'Managing the container products',
     'description': """
 Efficient management of products and containers
@@ -78,4 +78,3 @@ by selecting the container product in packaging.
     'application': False,
 }
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

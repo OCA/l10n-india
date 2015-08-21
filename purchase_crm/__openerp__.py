@@ -2,7 +2,7 @@
 ############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,8 +22,8 @@
 {
     "name": "Opportunity to RFQ",
     "version": "1.0",
-    "author": "OpenERP SA",
-    "website": "http://www.openerp.com",
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'sequence': 120,
     "category": "Purchase Management",
     'summary': 'Create Request for Quotation from Opportunity',
@@ -50,5 +50,3 @@
     "auto_install": False,
     "application": False,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

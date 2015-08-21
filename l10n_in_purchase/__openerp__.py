@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd. (<http://www.serpentcs.com>)
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd. (<http://www.serpentcs.com>)
 #    Copyright (C) 2004 OpenERP SA (<http://www.openerp.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,10 +22,10 @@
 {
     'name' : 'Purchase Management, Indian localization',
     'version' : '1.0',
-    'author' : 'OpenERP SA',
     'sequence': 111,
     'category': 'Indian Localization',
-    'website' : 'http://www.openerp.com',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'summary' : 'Purchase Management, Indian localization',
     'description' : """
 Manage Freight, Packaging & Forwarding, Insurance, Mill Delivery
@@ -64,5 +64,3 @@ It also prints reports of Purchase orders and Supplier Invoices with Freight/Pac
     'installable' : True,
     'application' : False,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

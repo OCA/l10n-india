@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -222,5 +222,3 @@ class sale_advance_payment_inv(models.TransientModel):
         return result
 
 sale_advance_payment_inv()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

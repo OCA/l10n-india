@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,10 +22,10 @@
 {
     'name': 'Indian Localization',
     'version': '1.0',
-    'author': 'OpenERP SA',
+    'author': 'Serpent Consulting Services Pvt. Ltd.',
+    'website': 'https://www.serpentcs.com',
     'sequence': 110,
     'category': 'Indian Localization',
-    'website': 'http://www.openerp.com',
     'summary': 'Indian Localization settings',
     'description': """
     Provides the configuration for whole business suite according to
@@ -106,5 +106,3 @@ You can reconcile customer and suppliers account against each other.
     'installable': True,
     'application': True,
 }
-
-# vim:expandtab:tabstop=4:softtabstop=4:shiftwidth=4:

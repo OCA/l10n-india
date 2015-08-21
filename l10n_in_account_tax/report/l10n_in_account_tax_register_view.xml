@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
 	<data>
-
 		<!-- Indent Report Tree View -->
 		<record id="view_account_tax_register_tree" model="ir.ui.view">
 			<field eval="1" name="priority" />
@@ -12,28 +11,18 @@
 					<field name="date_invoice" string="Date"/>
 					<field name="partner_id" invisible="context.get('view_partner_id')" />
 					<field name="cst_no" />
-					
 					<field name="type" invisible="1" />
 					<field name="invoice_id" />
-					
 					<field name="base_amount" string="Assessable Value"/>
 					<field name="tax_amount" string="CST Amount"/>
-					
 					<field name="amount_untaxed" string="Invoice Amount"/>
-
 					<field name="company_id" invisible="1" />
-
 					<field name="tax_code_id" invisible="1" />
-
 					<field name="name" invisible="1" />
-					
 					<field name="is_form" invisible="1" />
-					
 					<field name="tax_categ" string="Form Type"/>
 					<field name="form_no" />
 					<field name="date_iseeu" string="Form Date"/>
-					
-
 					<field name="state" invisible="1" />
 					<field name="number" invisible="1" />
 				</tree>
@@ -103,4 +92,4 @@
 			sequence="5" />
 
 	</data>
-</openerp>
+</odoo>

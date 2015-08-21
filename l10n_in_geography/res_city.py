@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,6 @@
 
 from openerp import models, fields
 
-
 class res_city(models.Model):
     _name = "res.city"
 
@@ -31,5 +30,3 @@ class res_city(models.Model):
                                required=True)
     country_id = fields.Char(related='state_id.country_id.name',
                              string='Country')
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -2,7 +2,7 @@
 ###########################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd.
+#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
 #    (<http://www.serpentcs.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -317,5 +317,3 @@ class product_category(models.Model):
     chapter_no = fields.Char(string='Ex-Chapeter No.', size=256)
 
 product_category()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
