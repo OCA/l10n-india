@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd. (<http://www.serpentcs.com>)
+#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd. (<http://www.serpentcs.com>)
 #    Copyright (C) 2004 OpenERP SA (<http://www.openerp.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -30,4 +30,11 @@ class order(report_sxw.rml_parse):
         super(order, self).__init__(cr, uid, name, context=context)
         self.localcontext.update({'time': time})
 
-report_sxw.report_sxw('report.l10n_in.purchase.order','purchase.order','addons/purchase/report/order.rml',parser=order)
+class report_order(osv.AbstractModel):
+    _name = 'report.l10n_in_purchase.purchase_order_report'
+    _inherit = 'report.abstract_report'
+    _template = 'l10n_in_purchase.purchase_order_report'
+    _wrapped_report_class = order
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+

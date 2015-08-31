@@ -27,7 +27,7 @@
     'sequence': 120,
     'category': 'Indian Localization',
     'summary': 'Annexure 2A/2B',
-    'description': """
+    'description': """This modules does
 Annexure 2A is the Summary of DVAT-30 (Purchases),
 and Annexure 2B is the Summary of DVAT-31 (Sales).
 

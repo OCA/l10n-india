@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="purchase_order_report">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page" style="font-size: 18px;">
+                            <table width="100%">
+                                <tr>
+                                    <th width="65%">Shipping address :</th>
+                                    <td width="25%"><span t-field="o.partner_id.name"/><br/>
+                                        <p t-esc="display_address(o.partner_id)"></p>
+                                        <t t-if="o.partner_id.phone">
+                                            Tel :<span t-field="o.partner_id.phone"/><br/>
+                                        </t>
+                                        <t t-if="o.partner_id.fax">
+                                            Fax :<span t-field="o.partner_id.fax"/><br/>
+                                        </t>
+                                        <t t-if="o.partner_id.vat">
+                                            TIN :<span t-field="o.partner_id.vat"/><br/>
+                                        </t>
+                                    </td>
+                                    <td width="10%">&#160;</td>
+                                </tr>
+                            </table>
+                            <br/><br/>
+                            <t t-if="o.state == 'draft'">
+                                <h3><b>Purchase Order Confirmation N°<span t-field="o.name"/></b></h3>
+                            </t>
+                            <t t-if="o.state!='draft'">
+                                <h3><b>Request for Quotation N°<span t-field="o.name"/></b></h3>
+                            </t>
+                            <br/>
+                            <table width="100%" style="line-height: 200%;">
+                                <tr>
+                                    <th width="25%" style="text-align:center;border:1px solid gray;">Our Order Reference</th>
+                                    <th width="25%" style="text-align:center;border:1px solid gray;">Your Order Reference</th>
+                                    <th width="25%" style="text-align:center;border:1px solid gray;">Order Date</th>
+                                    <th width="25%" style="text-align:center;border:1px solid gray;">Validated By</th>
+                                </tr>
+                                <tr>
+                                    <td width="25%" style="text-align:center;border:1px solid gray;"><span t-field="o.name"/></td>
+                                    <td width="25%" style="text-align:center;border:1px solid gray;"><span t-field="o.partner_ref"/></td>
+                                    <td width="25%" style="text-align:center;border:1px solid gray;"><span t-field="o.date_order"/></td>
+                                    <td width="25%" style="text-align:center;border:1px solid gray;"><span t-field="o.validator.name"/></td>
+                                </tr>
+                            </table>
+                            <br/><br/>
+                            <table width="100%" style="line-height: 200%;">
+                                <tr>
+                                    <th width="28%" style="text-align:left;border-bottom:1px solid black;">Description</th>
+                                    <th width="20%" style="text-align:center;border-bottom:1px solid black;">Taxes</th>
+                                    <th width="13%" style="text-align:center;border-bottom:1px solid black;">Date Req.</th>
+                                    <th width="13%" style="text-align:center;border-bottom:1px solid black;">Qty</th>
+                                    <th width="13%" style="text-align:center;border-bottom:1px solid black;">Unit Price</th>
+                                    <th width="13%" style="text-align:center;border-bottom:1px solid black;">Net Price</th>
+                                </tr>
+                                <t t-foreach="o.order_line" t-as="line">
+                                    <tr>
+                                        <td width="28%" style="text-align:left;border-bottom:1px solid gray;"><span t-field="line.name"/></td>
+                                        <td width="20%" style="text-align:center;border-bottom:1px solid gray;"><t t-foreach="line.taxes_id" t-as="tax_line"><span t-field="tax_line.name"/>,</t></td>
+                                        <td width="13%" style="text-align:center;border-bottom:1px solid gray;"><span t-field="line.date_planned"/></td>
+                                        <td width="13%" style="text-align:center;border-bottom:1px solid gray;"><span t-field="line.product_qty"/><span t-field="line.product_uom.name"/></td>
+                                        <td width="13%" style="text-align:center;border-bottom:1px solid gray;"><span t-field="line.price_unit"/></td>
+                                        <td width="13%" style="text-align:center;border-bottom:1px solid gray;"><span t-field="line.price_subtotal"/></td>
+                                    </tr>
+                                </t>
+                            </table>
+                            <table width="100%" style="line-height: 200%;">
+                                <tr>
+                                    <td width="28%" style="text-align:left;">Packaging &amp; Forwarding :</td>
+                                    <td width="20%" style="text-align:left;"><span t-field="o.package_and_forwording"/><span t-field="o.pricelist_id.currency_id.symbol"/></td>
+                                    <td width="20%">&#160;</td>
+                                    <td width="20%" style="text-align:left;">Net Total :</td>
+                                    <td width="12%" style="text-align:right;"><span t-field="o.amount_untaxed"/><span t-field="o.pricelist_id.currency_id.symbol"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="28%" style="text-align:left;">Freight :</td>
+                                    <td width="20%" style="text-align:left;"><span t-field="o.freight"/><span t-field="o.pricelist_id.currency_id.symbol"/></td>
+                                    <td width="20%">&#160;</td>
+                                    <td width="20%" style="text-align:left;">Taxes :</td>
+                                    <td width="12%" style="text-align:right;"><span t-field="o.amount_tax"/><span t-field="o.pricelist_id.currency_id.symbol"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="28%" style="text-align:left;">Insurance :</td>
+                                    <td width="20%" style="text-align:left;"><span t-field="o.insurance"/><span t-field="o.pricelist_id.currency_id.symbol"/></td>
+                                    <td width="20%">&#160;</td>
+                                    <td width="20%" style="text-align:left;">Other Charges :</td>
+                                    <td width="12%" style="text-align:right;"><span t-field="o.other_charges"/><span t-field="o.pricelist_id.currency_id.symbol"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="28%" style="text-align:left;">&#160;</td>
+                                    <td width="20%" style="text-align:left;">&#160;</td>
+                                    <td width="20%">&#160;</td>
+                                    <td width="20%" style="text-align:left;">Round Off </td>
+                                    <td width="12%" style="text-align:right;"><span t-field="o.round_off"/><span t-field="o.pricelist_id.currency_id.symbol"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="28%" style="text-align:left;">&#160;</td>
+                                    <td width="20%" style="text-align:left;">&#160;</td>
+                                    <td width="20%">&#160;</td>
+                                    <td width="20%" style="text-align:left;border-top:1px solid black;">Total :</td>
+                                    <td width="12%" style="text-align:right;border-top:1px solid black;"><span t-field="o.amount_total"/><span t-field="o.pricelist_id.currency_id.symbol"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+     </data>
+</openerp>

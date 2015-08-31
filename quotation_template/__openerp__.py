@@ -28,7 +28,7 @@
     'author': 'Serpent Consulting Services Pvt. Ltd.',
     'website': 'https://www.serpentcs.com',
     'summary': 'Quotation Template',
-    'description': """
+    'description': """This modules does
     Prepare and propose quotations to your customers quickly!
     ============================================================
     This module helps you to create quotations quickly and easily

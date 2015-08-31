@@ -24,7 +24,7 @@
     'name': 'Indian Tax Category',
     'version': '1.0',
     'category': 'Indian Localization',
-    'description': """Configure Indian Tax with Category
+    'description': """This modules does Configure Indian Tax with Category
 ========================================================================
 - Added tax category on tax to determine different types of taxes during
   computation and calculations

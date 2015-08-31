@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<openerp>
     <data>
-    <!--
-        <report auto="False"
-        id="tax_invoice_report"
-        model="account.invoice"
-        name="account.invoice.tax.excise"
-        multi="True"
-        attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/',''))"
-        rml="l10n_in_tax_retail_invoice/report/tax_invoice.rml"
-        string="Tax Invoice"/>
-    -->
-        
         <report 
             string="Tax Invoice" 
             id="tax_invoice_report" 
@@ -30,4 +19,4 @@
 			<field name="report" ref="tax_invoice_report"/>
 		</record>
     </data>
-</odoo>
+</openerp>

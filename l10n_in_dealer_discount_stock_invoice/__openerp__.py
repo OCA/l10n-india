@@ -25,7 +25,7 @@
     'version': '1.0',
     'category': 'Indian Localization',
     'summary': 'Dealer Discount Transfer to Invoice from Warehouse',
-    'description': """
+    'description': """This modules does
 Transfer Dealer Discount to Invoice from Warehouse
 ================================================================
 This module lets you transfer the dealer's discount from

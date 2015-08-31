@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd. (<http://www.serpentcs.com>)
+#    Copyright (C) 2012-Today Serpent Consulting Services Pvt. Ltd. (<http://www.serpentcs.com>)
 #    Copyright (C) 2004 OpenERP SA (<http://www.openerp.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,6 +22,7 @@
 
 import time
 from openerp.report import report_sxw
+from openerp.osv import osv
 
 class account_l10n_in_invoice(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context):
@@ -29,9 +30,9 @@ class account_l10n_in_invoice(report_sxw.rml_parse):
         self.localcontext.update({
             'time': time,
         })
-report_sxw.report_sxw(
-    'report.l10n.in.account.invoice',
-    'account.invoice',
-    'addons/account/report/account_print_invoice.rml',
-    parser=account_l10n_in_invoice
-)
+class invoice_report(osv.AbstractModel):
+    _name = 'report.l10n_in_purchase.account_invoice_report'
+    _inherit = 'report.abstract_report'
+    _template = 'l10n_in_purchase.account_invoice_report'
+    _wrapped_report_class = account_l10n_in_invoice
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

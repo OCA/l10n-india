@@ -27,7 +27,7 @@
     'sequence': 110,
     'category': 'Indian Localization',
     'summary': 'Indian Localization settings',
-    'description': """
+    'description': """This modules does
     Provides the configuration for whole business suite according to
     indian localization.
 ==========================================================================

@@ -25,7 +25,7 @@
     'version': '1.0',
     'category': 'Indian Localization',
     'summary': 'Packing Cost transfer to Invoice from Warehouse',
-    'description': """
+    'description': """This modules does
 Transfer packing cost to Invoice from Warehouse
 ====================================================
 With the use of this module the packing cost will be transferred from

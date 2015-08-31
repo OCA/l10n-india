@@ -28,7 +28,7 @@
     'website': 'https://www.serpentcs.com',
     'summary': 'Managing the container products',
     'description': """
-Efficient management of products and containers
+This modules does Efficient management of products and containers
 ========================================================================
 Useful to manage and track containers in which products are delivered to
 the customers and to be taken back from customers.

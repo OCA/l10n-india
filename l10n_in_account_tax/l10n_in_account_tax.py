@@ -52,10 +52,11 @@ class account_tax(models.Model):
 
     tax_categ = fields.Selection(selection=TAX_TYPES, string='Tax Category')
     is_form = fields.Boolean(string='Form ?')
-
-    def _unit_compute(self, cr, uid, taxes, price_unit,
+    
+    @api.model
+    def _unit_compute(self,taxes, price_unit,
                       product=None, partner=None, quantity=0):
-        taxes = self._applicable(cr, uid, taxes,
+        taxes = self._applicable(taxes,
                                  price_unit, product, partner)
         res = []
         cur_price_unit = price_unit
@@ -109,7 +110,7 @@ class account_tax(models.Model):
                 if tax.child_depend:
                     latest = res.pop()
                 amount = amount2
-                child_tax = self._unit_compute(cr, uid, tax.child_ids,
+                child_tax = self._unit_compute(tax.child_ids,
                                                amount, product, partner,
                                                quantity)
                 # Add Parent reference in child dictionary of tax
@@ -212,7 +213,6 @@ class account_invoice_tax(models.Model):
 #                res[key]['is_form'] = tax.is_form
 #        return res
 
-account_invoice_tax()
 
 
 class res_partner(models.Model):
@@ -253,7 +253,7 @@ class res_company(models.Model):
 
     _inherit = 'res.company'
 
-    range = fields.Char(string='Range', size=64)
+    tax_range = fields.Char(string='Range', size=64)
     division = fields.Char(string='Division', size=64)
     commissionerate = fields.Char(string='Commissionerate', size=64)
     tariff_rate = fields.Integer(string='Tariff Rate')

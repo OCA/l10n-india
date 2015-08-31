@@ -25,7 +25,7 @@
     'version': '1.0',
     'category': 'Indian Localization',
     'summary': 'Packing Cost on Invoice',
-    'description': """
+    'description': """ This modules does
 Packing Cost on Invoice
 =========================================================================
 This module allows you to manage packing cost of the products on invoices.

@@ -26,8 +26,8 @@
     'category': 'Indian Localization',
     'summary': 'Packing Cost on Sales Order',
     'description': """
-Packing Cost on Sales Order
-===============================
+This modules does Packing Cost on Sales Order
+=============================================
 This module allows you to manage packing cost of the products on sales orders.
 
 If you want to sell goods to be delivered in a container (package),

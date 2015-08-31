@@ -27,7 +27,7 @@
     'author': 'Serpent Consulting Services Pvt. Ltd.',
     'website': 'https://www.serpentcs.com',
     'summary' : 'Purchase Management, Indian localization',
-    'description' : """
+    'description' : """This modules does
 Manage Freight, Packaging & Forwarding, Insurance, Mill Delivery
 =====================================================================
 This module allows you to manage different charges on Purchase orders & Supplier invoices used for Indian Localization.
@@ -57,6 +57,8 @@ It also prints reports of Purchase orders and Supplier Invoices with Freight/Pac
     'update_xml' : ['l10n_in_purchase_view.xml',
                     'l10n_in_account_view.xml',
                     'purchase_report.xml',
+                    'report/account_print_invoice.xml',
+                    'report/order.xml',
     ],
 
     'demo': [],

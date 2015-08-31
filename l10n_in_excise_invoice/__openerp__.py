@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-############################################################################
+###########################################################################
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2011-Today Serpent Consulting Services Pvt. Ltd.
@@ -19,30 +19,25 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 ############################################################################
+
 {
-    'name': 'Dealer Price on Sales',
+    'name': 'Excise Invoice',
     'version': '1.0',
     'category': 'Indian Localization',
-    'summary': 'Dealer Price, Discount for Dealers on Sales',
-    'description': """This modules does
-Dealer Price, Discount for Dealers on Sales
-===============================================
-With the use of this module you can define dealer specific price
-on Quotations/Sales orders with the use of dealer's pricelist.
-On the Quotations/Sales orders you can select the dealer and
-the relevant pricelist so from the sales orders you can get
-the dealer price amount along with the customer price amount.
+    'description': """
+Module for invoice excise report according to Indian Standard.
+==============================================================
+
 """,
     'author': 'Serpent Consulting Services Pvt. Ltd.',
     'website': 'https://www.serpentcs.com',
     'images': [],
-    'depends': ['l10n_in_base',
-                'l10n_in_dealer_discount_invoice',
-                'l10n_in_sale_invoice_reverse',
-                'sale_stock'],
-    'data': ['l10n_in_dealers_discount.xml'],
+    'depends': ['l10n_in_tax_retail_invoice'],
+    'data': [
+        'report/excise_cum_tax_invoice.xml',
+        'view/excise_cum_tax_invoice.xml'
+    ],
     'installable': True,
     'auto_install': False,
 }
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

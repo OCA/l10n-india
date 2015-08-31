@@ -20,22 +20,22 @@
 #
 ############################################################################
 
-{
-    'name': 'Dealer Price on Invoice',
-    'version': '1.0',
-    'category': 'Indian Localization',
-    'summary': 'Dealer Price, Compute discount for Dealers on Invoice',
-    'description': """This modules does Dealer Price on Invoice
-=================================================================
-With the use of this module you can define dealer specific price
-with the use of dealer's pricelist. On the Invoice you can select
-the dealer and the relevant pricelist so from the invoice you can get
-the dealer price amount along with the customer price amount.
-""",
-    'author': 'Serpent Consulting Services Pvt. Ltd.',
-    'website': 'https://www.serpentcs.com',
-    'depends': ['l10n_in_base', 'product_container', 'account'],
-    'data': ['l10n_in_dealer_discount_invoice.xml'],
-    'installable': True,
-    'auto_install': False,
-}
+from openerp import models, fields, api
+
+class res_company(models.Model):
+    _inherit = 'res.company'
+
+    range = fields.Char(string='Range', size=64)
+    division = fields.Char(string='Division', size=64)
+    commissionerate = fields.Char(string='Commissionerate', size=64)
+    tariff_rate = fields.Integer(string='Tariff Rate')
+
+res_company()
+
+class res_partner(models.Model):
+    _inherit = "res.partner"
+
+    ecc_no = fields.Char(string='ECC', size=32, help="Excise Control Code")
+
+res_partner()
+

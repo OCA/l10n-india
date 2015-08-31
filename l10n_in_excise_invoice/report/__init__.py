@@ -20,22 +20,5 @@
 #
 ############################################################################
 
-{
-    'name': 'Dealer Price on Invoice',
-    'version': '1.0',
-    'category': 'Indian Localization',
-    'summary': 'Dealer Price, Compute discount for Dealers on Invoice',
-    'description': """This modules does Dealer Price on Invoice
-=================================================================
-With the use of this module you can define dealer specific price
-with the use of dealer's pricelist. On the Invoice you can select
-the dealer and the relevant pricelist so from the invoice you can get
-the dealer price amount along with the customer price amount.
-""",
-    'author': 'Serpent Consulting Services Pvt. Ltd.',
-    'website': 'https://www.serpentcs.com',
-    'depends': ['l10n_in_base', 'product_container', 'account'],
-    'data': ['l10n_in_dealer_discount_invoice.xml'],
-    'installable': True,
-    'auto_install': False,
-}
+import excise_cum_tax_invoice
+

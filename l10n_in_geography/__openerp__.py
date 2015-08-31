@@ -24,7 +24,7 @@
     'version': '1.0',
     'category': 'Indian Localization',
     'summary': 'List of States and Cities in India',
-    'description': """
+    'description': """This modules does
 List of States and Cities in India
 ==================================
 This module adds all the major cities of India by state.

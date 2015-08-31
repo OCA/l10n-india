@@ -25,7 +25,7 @@
     'version': '1.0',
     'category': 'Indian Localization',
     'summary': 'List of All Indian Nationalized Banks',
-    'description': """
+    'description': """ This modules does
     Indian Nationalized Banks and Bank Account types
     ==================================================
     This module contains list of all Indian Nationalized Banks

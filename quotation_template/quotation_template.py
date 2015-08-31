@@ -22,9 +22,8 @@
 
 import time
 import re
-from openerp import models, fields, api
+from openerp import models, fields, api ,tools
 from openerp.tools.translate import _
-from openerp import tools
 from openerp.exceptions import Warning
 
 

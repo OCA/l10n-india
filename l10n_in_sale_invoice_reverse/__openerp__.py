@@ -25,8 +25,8 @@
     'category': 'Hidden',
     'summary': 'Sale Invoice',
     'description': """
-Sale Invoice.
-=============
+This modules does Sale Invoice.
+===============================
 """,
     'author': 'Serpent Consulting Services Pvt. Ltd.',
     'website': 'https://www.serpentcs.com',

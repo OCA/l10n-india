@@ -28,7 +28,7 @@
     "category": "Purchase Management",
     'summary': 'Create Request for Quotation from Opportunity',
     "description":
-    """
+    """This modules does
     Create Request for Quotation from Opportunity
     =====================================================
     This module allows you to generate request for quotation from
