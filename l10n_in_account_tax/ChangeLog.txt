@@ -1,0 +1,6 @@
+===================================================================
+Maintaining the changelog of the module for each commit.
+===================================================================
+
+1.0 : Saifuddin Rupawala - Serpent Consulting Services Pvt Ltd. : Jun 26, 2015
+	* Fix the error when click on the Supplier Invoice.

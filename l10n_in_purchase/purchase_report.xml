@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            id = "account_invoices"
+            string = "Invoices"
+            model = "account.invoice"
+	    attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+	    attachment_use="True"
+	    usage="default"
+            name = "l10n_in_purchase.account_invoice_report"
+            report_type = "qweb-pdf" 
+        />
+        <report
+            id = "report_purchase_order"
+            string = "Purchase Order"
+            model = "purchase.order"
+            name = "l10n_in_purchase.purchase_order_report"
+            report_type = "qweb-pdf" 
+        />
+    </data>
+</openerp>
