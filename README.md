@@ -1,3 +1,6 @@
+[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/197/8.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-l10n-india-197)
+[![Build Status](https://travis-ci.org/OCA/l10n-india.svg?branch=8.0)](https://travis-ci.org/OCA/l10n-india)
+
 #Indian localization for Odoo
 
 - The goal of this repository is to help Indian Implementors implement Odoo in Indian territory.
